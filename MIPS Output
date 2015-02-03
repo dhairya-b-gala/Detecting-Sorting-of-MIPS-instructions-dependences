@@ -1,0 +1,62 @@
+ADD R1 R2 R3
+SUBI R1 R1 02
+BNE R2 R1 02
+MUL R2 R3 R4
+DIV R1 R2 R4
+AND R2 R5 R10
+
+mnemonic[0] = ADD       destination[0] = R1    Reg1[0] = R2    Reg2[0] = R3
+
+mnemonic[1] = SUBI      destination[1] = R1    Reg1[1] = R1    Reg2[1] = 02
+
+mnemonic[2] = BNE       destination[2] = R2    Reg1[2] = R1    Reg2[2] = 02
+
+mnemonic[3] = MUL       destination[3] = R2    Reg1[3] = R3    Reg2[3] = R4
+
+mnemonic[4] = DIV       destination[4] = R1    Reg1[4] = R2    Reg2[4] = R4
+
+mnemonic[5] = AND       destination[5] = R2    Reg1[5] = R5    Reg2[5] = R10
+
+Press Enter to start
+
+
+
+Data dependence:        ADD R1 R2 R3
+                        SUBI R1 R1 02
+
+READ AFTER WRITE hazard because true dependency true dependency exists.
+
+
+Data dependence:        SUBI R1 R1 02
+                        BNE R2 R1 02
+
+READ AFTER WRITE hazard because true dependency true dependency exists.
+
+
+Data dependence:        MUL R2 R3 R4
+                        DIV R1 R2 R4
+
+READ AFTER WRITE hazard because true dependency true dependency exists.
+
+
+Anti-dependence:        DIV R1 R2 R4
+                        AND R2 R5 R10
+causes WRITE AFTER READ hazard.
+
+
+Output dependence:      ADD R1 R2 R3
+                        SUBI R1 R1 02
+
+causes WRITE AFTER WRITE hazard.
+
+
+Output dependence:      BNE R2 R1 02
+                        MUL R2 R3 R4
+
+causes WRITE AFTER WRITE hazard.
+
+
+Control dependence:     BNE R2 R1 02
+                        DIV R1 R2 R4
+
+Instruction 4 is executed only if instruction 2 is true.
