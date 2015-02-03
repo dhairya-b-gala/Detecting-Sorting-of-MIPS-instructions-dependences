@@ -1,0 +1,2 @@
+# Detecting-Sorting-of-MIPS-instructions-dependences
+C program that reads MIPS-like instructions from a file and outputs all the dependences, namely data, name (both anti-dependence and output dependence), and control dependences. The output file should include the instruction pairs, type of dependence, and cause of dependence. Assuming that the instruction set consists of only ALU instructions (ADD, SUB, MUL, DIV, OR, AND, NOT), BEZ, and BNE instructions.
